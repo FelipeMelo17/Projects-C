@@ -1,40 +1,35 @@
 #include <stdio.h>
 #include <locale.h>
-#include <stdlib.h>
-main()
+
+int main()
 {
-int codigo, filial;
-float m1, m2, m3, totalRestaurante, totalFilial;
+int matricula, tempo;
+char nome[30];
+float mes1, mes2, mes3, comissao;
+
 setlocale(LC_ALL,"Portuguese");
 
-for (filial = 1; filial < 4; filial++)
-    {
-    printf("\nDigite o código da filial %d: ", filial);
-    scanf("%d", &codigo);
-         while (codigo <= 0)
-            {
-                printf("Erro. Digite o código da filial: ");
-                scanf("%d", &codigo);
-            }    
-    printf("Digite o valor de venda do primeiro mês: ");
-    scanf("%f", &m1);
-    printf("Digite o valor de venda do segundo mês: ");
-    scanf("%f", &m2);
-    printf("Digite o valor de venda do terceiro mês: ");
-    scanf("%f", &m3);
+    printf("Digite o número da matrícula do vendedor: ");
+    scanf("%d", &matricula);
+    printf("Digite o nome do vendedor: ");
+    scanf("%s", nome);
+    printf("Digite quantos anos trabalha na empresa: ");
+    scanf("%d", &tempo);
+    printf("Digite o valor recebido do mês 1: ");
+    scanf("%f", &mes1);
+    printf("Digite o valor recebido do mês 2: ");
+    scanf("%f", &mes2);
+    printf("Digite o valor recebido do mês 3: ");
+    scanf("%f", &mes3);
     
-    totalFilial = (m1+m2+m3);
-    totalRestaurante = (totalRestaurante + totalFilial);
-
-    printf("\nA filial %d, teve um valor total de: %.2f.\n", filial, totalFilial);
-    if (filial == 3)
-        
-        {
-            printf("\nO restaurante, teve um valor total apurado de: %.2f.\n", totalRestaurante);
-        }    
-    
+    if (tempo >= 10)
+	{
+    comissao = mes1 * 0.1 + mes2 * 0.12 + mes3 * 0.15;    
     }
-return 0;
+	else if (tempo < 10){
+    comissao = mes1 * 0.1 + mes2 * 0.1 + mes3 * 0.1;
+	}
+
+    printf("\nO colaborador %s, matrícula: %d, trabalha na empresa a: %d anos e teve um total de R$ %.2f de comissão.", nome, matricula, tempo, comissao);   
+    return 0;
 }
-
-
